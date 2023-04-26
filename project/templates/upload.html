@@ -1,0 +1,118 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+  
+  h2 {
+    text-align: center;
+
+  }
+
+  label,
+  select {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"],
+  input[type="file"],
+  select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin:auto;
+    margin-bottom:25px;
+   
+  }
+
+  input[type="submit"]:hover {
+    
+    background-color: #45a049;
+  }
+  footer {
+            margin-top: 10vw;
+        }
+
+        @media screen and (min-width: 768px) {
+            footer {
+                margin-top: 15vw;
+            }
+        }
+
+        @media screen and (min-width: 992px) {
+            footer {
+                margin-top: 20vw;
+            }
+        }
+  
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="container vh-100 ">
+  <div class="row">
+    <div class="col-sm-12 col-md-8" style="margin-top: 8rem;">
+      {% include "notification.html" %}
+      <div class="card shadow-lg m-4 ">
+        <div class="card-header">
+          <div class="card-title">
+            <h2>Please upload your file</h2>
+          </div>
+        </div>
+
+        <form action="/upload" method="post" class="upload_menu m-3">
+          
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name">
+
+          <label for="file">Select a file:</label>
+          <input type="file" id="file" name="file">
+
+          <label for="file-type">File Type:</label>
+          <select id="file-type" name="file-type">
+            <option value="pdf">.csv</option>
+            <option value="docx">.txt</option>
+            <option value="txt">.docx</option>
+            <option value="other">Other</option>
+          </select>
+          <button class="btn btn-success btn-block">Upload</button>
+          
+        </form>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+{% endblock %}
+{% block js %}
+<script>
+  $(function () {
+    anime({
+      targets: '.card',
+      rotate: '1turn',
+      duration: 1000
+    });
+  });
+
+
+
+</script>
+{% endblock %}
